@@ -1,4 +1,5 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import path from "path";
 
 export default defineConfig({
   tanstackStart: {
@@ -13,7 +14,7 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        "@": "/src",
+        "@": path.resolve(__dirname, "./src"),
       },
     },
     ssr: {
