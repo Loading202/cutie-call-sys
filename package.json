@@ -6,7 +6,8 @@
     "dev": "vinxi dev",
     "build": "vinxi build",
     "start": "vinxi start"
-  },
+},
+
   "dependencies": {
     "@lovable.dev/vite-tanstack-config": "latest",
     "@tanstack/react-query": "latest",
