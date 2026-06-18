@@ -1,4 +1,3 @@
-
 -- Enums
 CREATE TYPE public.app_role AS ENUM ('admin', 'client');
 CREATE TYPE public.appointment_status AS ENUM ('pending','confirmed','completed','cancelled');
@@ -111,7 +110,7 @@ CREATE POLICY "Admin manages barbers" ON public.barbers FOR ALL TO authenticated
 -- appointments
 CREATE TABLE public.appointments (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  client_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+  client_id UUID NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
   barber_id UUID NOT NULL REFERENCES public.barbers(id) ON DELETE RESTRICT,
   service_id UUID NOT NULL REFERENCES public.services(id) ON DELETE RESTRICT,
   scheduled_at TIMESTAMPTZ NOT NULL,
